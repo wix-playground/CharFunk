@@ -33,7 +33,7 @@ All you need is to download [charFunk-1.1.0.js](https://raw.github.com/joelarson
 
 Interested in contributing?  Check out [contributors.md](https://github.com/joelarson4/CharFunk/blob/master/contributors.md) for some details.
 
-If you are working on anything involving Unicode characters, you might also find this helpful: [Unicodinator](http://unicodinator.com).
+Finally, if you are working on anything involving Unicode, you might also find this helpful: [Unicodinator](http://unicodinator.com).
 
 ##API
 
