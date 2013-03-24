@@ -8,12 +8,12 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> <%= pkg.version %> - Copyright (c) <%= grunt.template.today("yyyy") %> by Joe Larson (http://joewlarson.com), MIT License - minified <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'src/charFunk-1.1.0.js',
-                dest: 'charFunk-1.1.0.min.js'
+                src: 'src/charFunk-1.1.1.js',
+                dest: 'charFunk-1.1.1.min.js'
             }
         },
         jshint: {
-            files: ['Gruntfile.js', 'src/charFunk-1.1.0.js']
+            files: ['Gruntfile.js', 'src/charFunk-1.1.1.js']
         },
         qunit: {
             files: ['tests/index.html']

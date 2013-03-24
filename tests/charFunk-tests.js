@@ -150,6 +150,17 @@ $(function() {'use strict';
         
         ok( CharFunk.isValidName('function'), 'test yes for function when not checking reserved keywords');
         ok( !CharFunk.isValidName('function',true), 'test no for function when checking reserved keywords');
+
+        //from http://mathiasbynens.be/notes/javascript-identifiers
+        ok( CharFunk.isValidName('\u006C\u006F\u006C\u0077\u0061\u0074'), 'test yes for \u006C\u006F\u006C\u0077\u0061\u0074');
+        ok( CharFunk.isValidName('foo\u200Cbar'), 'test yes for foo\u200Cbar');
+        ok( CharFunk.isValidName('λ'), 'test yes for λ');
+        ok( CharFunk.isValidName('π'), 'test yes for π');
+        ok( CharFunk.isValidName('ಠ_ಠ'), 'test yes for ಠ_ಠ');
+        ok( CharFunk.isValidName('ლ_ಠ益ಠ_ლ'), 'test yes for ლ_ಠ益ಠ_ლ');
+        ok( CharFunk.isValidName('〱〱'), 'test yes for 〱〱');
+        ok( CharFunk.isValidName('Ꙭൽↈⴱ'), 'test yes for Ꙭൽↈⴱ');
+
     }); 
 
     test( 'CharFunk isWhitespace', function() {

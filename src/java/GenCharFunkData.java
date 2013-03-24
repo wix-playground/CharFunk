@@ -12,7 +12,7 @@ public class GenCharFunkData {
     public static void main(String[] args) {
         try {
             System.out.println("Updating data...");
-            String srcfilnam="../charFunk-1.1.0.js";
+            String srcfilnam="../charFunk-1.1.1.js";
             String[] filcon=getFileContents(srcfilnam);
             out=new PrintWriter(new File(srcfilnam));
             out.println(filcon[0]);
