@@ -1,6 +1,6 @@
 #CharFunk - a Unicode character utility for JavaScript
 
-CharFunk provides some of the functionality that Java's Character class does.  For example, it lets you test whether characters are letters or digits.
+CharFunk provides some of the functionality that Java's Character class does.  For example, it lets you test whether unicode characters in the BMP (0000 to FFFF) are letters or digits.
 
 Here are some of the things you can do with CharFunk:
 
