@@ -71,14 +71,14 @@ Returns one of the following:
 
 ###CharFunk.getMatches(string,callback)
 Returns an array of contiguous matching strings for which the callback returns true, similar to String.match().
-    CharFunk.getMatches("test this out",CharFunk.isLetter); // returns ["test","this","out"]
+`CharFunk.getMatches("test this out",CharFunk.isLetter); // returns ["test","this","out"]`
 
 
 `@param {String} string` - a string of any length
 
 `@param {Function} callback` - a function to call for each character, which must return true if a match or false if not a match.  This function will be provided three arguments: a char to check, a number for the position, and a number for the string length
 
-`@returns {Array{String}` }
+`@returns {Array{String}}` 
 
 
 ###CharFunk.isAllLettersOrDigits(string)
@@ -244,7 +244,7 @@ If the callback does not return a string and the ch is not provided, then matche
 
 ###CharFunk.splitOnMatches(string,callback)
 Splits the string on all matches, similar to String.split().
-    CharFunk.splitOnMatches("test this out",CharFunk.isWhitespace); // returns ["test","this","out"]
+`CharFunk.splitOnMatches("test this out",CharFunk.isWhitespace); // returns ["test","this","out"]`
 
 
 `@param {String} string` - a string of any length

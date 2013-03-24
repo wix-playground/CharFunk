@@ -50,7 +50,7 @@ public class GenDoco {
                         if(!prvats) outmkd.add("");
                         int endquo=lin.length();
                         int dshidx=lin.indexOf("-");
-                        int crlidx=lin.indexOf("}");
+                        int crlidx=lin.lastIndexOf("}");
                         if(crlidx>-1) endquo=crlidx+1;
                         if(dshidx>-1) endquo=dshidx;
                         outmkd.add("\n`"+lin.substring(1,endquo).trim()+"` "+lin.substring(endquo).trim());
