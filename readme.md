@@ -1,17 +1,17 @@
 #CharFunk - a Unicode character utility for JavaScript
 
-CharFunk provides some of the functionality that Java's Character class does.  For example, it lets you test whether unicode characters in the BMP (0000 to FFFF) are letters or digits.
+CharFunk provides some of the functionality that Java's Character class does.  Many of these things would be difficult to do in JavaScript without very unweildy RegExps or using [XRegExp](http://xregexp.com/).  For example, it lets you test whether unicode characters in the Basic Multilingual Plane (0000 to FFFF) are letters or digits.
 
 Here are some of the things you can do with CharFunk:
 
     //Is this character a digit?
-    CharFunk.isDigit("A"); //false
-    CharFunk.isDigit("1"); //true
+    CharFunk.isDigit('A'); //false
+    CharFunk.isDigit('1'); //true
     CharFunk.isDigit('\u0E54'); //true - that's Thai #4 - http://unicodinator.com/#0E54
 
     //Is this character a mirrored character?
-    CharFunk.isMirrored("A"); //false
-    CharFunk.isMirrored("("); //true
+    CharFunk.isMirrored('A'); //false
+    CharFunk.isMirrored('('); //true
     CharFunk.isMirrored('\u2039'); //true - that's a Single Left-pointing Angle Quotation Mark - http://unicodinator.com/#2039
 
     //Is this string valid JavaScript Identifier?
@@ -22,12 +22,17 @@ Here are some of the things you can do with CharFunk:
     CharFunk.isValidName('function',true);  //false - when that second argument is set truthy it means we want to avoid reserved keywords
 
     //Replace all the characters that are not letters or digits or question marks with an underscore
-    CharFunk.replaceMatches("What will come out?",function(ch) {
+    CharFunk.replaceMatches('What will come out?',function(ch) {
       return CharFunk.isLetterOrDigit(ch) || ch=='?';
-      },"_"); //will return "What_will_come_out_"
+      },'_'); //will return 'What_will_come_out_'
       
+    //OK, you could do that with JavaScript regex easily enough, but you could not do this:
+    CharFunk.replaceMatches('جمهورية مصر العربية',function(ch) {
+        return !CharFunk.isLetterOrDigit(ch);
+        },'_'); //will return 'جمهورية_مصر_العربية'
+
     //Find the position of last uppercase letter in the string
-    CharFunk.lastIndexOf("Новые Известия",CharFunk.isUpperCase); //returns 6
+    CharFunk.lastIndexOf('Новые Известия',CharFunk.isUpperCase); //returns 6
 
 All you need is to download [charFunk-1.1.1.min.js](https://raw.github.com/joelarson4/CharFunk/master/charFunk-1.1.1.min.js) -- that's it, no other dependencies.
 
@@ -71,7 +76,7 @@ Returns one of the following:
 
 ###CharFunk.getMatches(string,callback)
 Returns an array of contiguous matching strings for which the callback returns true, similar to String.match().
-`CharFunk.getMatches("test this out",CharFunk.isLetter); // returns ["test","this","out"]`
+`CharFunk.getMatches('test this out',CharFunk.isLetter); // returns ['test','this','out']`
 
 
 `@param {String} string` - a string of any length
@@ -109,7 +114,7 @@ Returns true if provided a length 1 string that is a letter
 
 
 ###CharFunk.isLetterNumber(ch)
-Returns true if provided a length 1 string that is in the Unicode "Nl" category.
+Returns true if provided a length 1 string that is in the Unicode 'Nl' category.
 Beware -- this is NOT the same thing as isLetterOrDigit()!
 
 
@@ -244,7 +249,7 @@ If the callback does not return a string and the ch is not provided, then matche
 
 ###CharFunk.splitOnMatches(string,callback)
 Splits the string on all matches, similar to String.split().
-`CharFunk.splitOnMatches("test this out",CharFunk.isWhitespace); // returns ["test","this","out"]`
+`CharFunk.splitOnMatches('test this out',CharFunk.isWhitespace); // returns ['test','this','out']`
 
 
 `@param {String} string` - a string of any length
