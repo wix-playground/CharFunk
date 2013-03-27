@@ -76,7 +76,7 @@ Returns one of the following:
 
 ###CharFunk.getMatches(string,callback)
 Returns an array of contiguous matching strings for which the callback returns true, similar to String.match().
-`CharFunk.getMatches('test this out',CharFunk.isLetter); // returns ['test','this','out']`
+`CharFunk.getMatches("test this out",CharFunk.isLetter); // returns ["test","this","out"]`
 
 
 `@param {String} string` - a string of any length
@@ -114,7 +114,7 @@ Returns true if provided a length 1 string that is a letter
 
 
 ###CharFunk.isLetterNumber(ch)
-Returns true if provided a length 1 string that is in the Unicode 'Nl' category.
+Returns true if provided a length 1 string that is in the Unicode "Nl" category.
 Beware -- this is NOT the same thing as isLetterOrDigit()!
 
 
@@ -249,7 +249,7 @@ If the callback does not return a string and the ch is not provided, then matche
 
 ###CharFunk.splitOnMatches(string,callback)
 Splits the string on all matches, similar to String.split().
-`CharFunk.splitOnMatches('test this out',CharFunk.isWhitespace); // returns ['test','this','out']`
+`CharFunk.splitOnMatches("test this out",CharFunk.isWhitespace); // returns ["test","this","out"]`
 
 
 `@param {String} string` - a string of any length
