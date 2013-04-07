@@ -10,7 +10,3 @@ java GenDoco
 
 cd ../..
 grunt
-
-cd tests
-open index.html
-open index-min.html

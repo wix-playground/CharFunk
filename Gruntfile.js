@@ -24,23 +24,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
+    grunt.loadNpmTasks('grunt-lib-phantomjs');
 
-    /*Currently cannot run qunit tests to error https://github.com/gruntjs/grunt-contrib-qunit/issues/26
-
-        Running "qunit:files" (qunit) task
-        Testing tests/index.html
-        Running PhantomJS...ERROR
-        >> In order for this task to work properly, PhantomJS must be installed locally
-        >> via NPM. If you're seeing this message, generally that means the NPM install
-        >> has failed. Please submit an issue providing as much detail as possible at:
-        >> https://github.com/gruntjs/grunt-lib-phantomjs/issues
-        Warning: PhantomJS not found. Use --force to continue.
+    /*See https://github.com/joelarson4/CharFunk/issues/2
 
         If I can't sort that out soon or get a fix, I can probably get it to run in grunt some other way...
         ...in the meantime, run tests manually by opening tests/index.html in a browser!
     */
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint','uglify']);//,'qunit']);
+    grunt.registerTask('default', ['jshint','uglify','qunit']);
 
 };

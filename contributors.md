@@ -24,3 +24,4 @@ At the end it will open up the two test files in your browser -- unless open *.h
 
 + Grunt-contrib-qunit includes v1.4.0 qunit, but we need v1.11.0 for throws() support
 + Make sure you are using *JDK* *1.7* *and* *Java* *7*!
++ Be sure you're on node 0.10 at least

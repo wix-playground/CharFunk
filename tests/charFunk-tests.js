@@ -1,4 +1,7 @@
 $(function() {'use strict';
+    var ss, //starting point for looped tests
+        LOOP_INCREMENT=5;
+
 
     test( 'CharFunk basic tests', function() {
         ok( typeof CharFunk=='object', 'basic existence check');
@@ -24,96 +27,6 @@ $(function() {'use strict';
         throws( function() { CharFunk.isAllLettersOrDigits(null); }, "error expected for null string argument" );
 
         ok( CharFunk.isAllLettersOrDigits(""), "ok with length 0 string" );
-    });
-
-    test( 'CharFunk isDigit', function() {
-        var ii, ch;
-        for(ii=0; ii<TEST_DATA.GTYPE.length; ii++) {
-            ch=String.fromCharCode(ii);
-            if(TEST_DATA.GTYPE[ii]==2) {
-                ok( CharFunk.isDigit(ch), 'test yes for '+ii);
-            }
-            else {
-                ok( !CharFunk.isDigit(ch), 'test no for '+ii);
-            }
-        }
-    });
-
-    test( 'CharFunk isLetter', function() {
-        var ii, ch;
-        for(ii=0; ii<TEST_DATA.GTYPE.length; ii++) {
-            ch=String.fromCharCode(ii);
-            if(TEST_DATA.GTYPE[ii]==1) {
-                ok( CharFunk.isLetter(ch), 'test yes for '+ii);
-            }
-            else {
-                ok( !CharFunk.isLetter(ch), 'test no for '+ii);
-            }
-        }
-    });
-
-    test( 'CharFunk isLetterOrDigit', function() {
-        var ii, ch;
-        for(ii=0; ii<TEST_DATA.GTYPE.length; ii++) {
-            ch=String.fromCharCode(ii);
-            if(TEST_DATA.GTYPE[ii]>2) {
-                ok( !CharFunk.isLetterOrDigit(ch), 'test no for '+ii);
-            }
-            else {
-                ok( CharFunk.isLetterOrDigit(ch), 'test yes for '+ii);
-            }
-        }
-    });
-    test( 'CharFunk isLetterNumber', function() {
-        var ii, ch;
-        for(ii=0; ii<TEST_DATA.GTYPE.length; ii++) {
-            ch=String.fromCharCode(ii);
-            if(TEST_DATA.GTYPE[ii]==3) {
-                ok( CharFunk.isLetterNumber(ch), 'test yes for '+ii);
-            }
-            else {
-                ok( !CharFunk.isLetterNumber(ch), 'test no for '+ii);
-            }
-        }
-    });
-
-    test( 'CharFunk isLowerCase', function() {
-        var ii, ch;
-        for(ii=0; ii<TEST_DATA.CASE.length; ii++) {
-            ch=String.fromCharCode(ii);
-            if(TEST_DATA.CASE[ii]==2) {
-                ok( CharFunk.isLowerCase(ch), 'test yes for '+ii);
-            }
-            else {
-                ok( !CharFunk.isLowerCase(ch), 'test no for '+ii);
-            }
-        }
-    });
-
-    test( 'CharFunk isMirrored', function() {
-        var ii, ch;
-        for(ii=0; ii<TEST_DATA.MIRRORED.length; ii++) {
-            ch=String.fromCharCode(ii);
-            if(TEST_DATA.MIRRORED[ii]==1) {
-                ok( CharFunk.isMirrored(ch), 'test yes for '+ii);
-            }
-            else {
-                ok( !CharFunk.isMirrored(ch), 'test no for '+ii);
-            }
-        }
-    });
-
-    test( 'CharFunk isUpperCase', function() {
-        var ii, ch;
-        for(ii=0; ii<TEST_DATA.CASE.length; ii++) {
-            ch=String.fromCharCode(ii);
-            if(TEST_DATA.CASE[ii]==1) {
-                ok( CharFunk.isUpperCase(ch), 'test yes for '+ii);
-            }
-            else {
-                ok( !CharFunk.isUpperCase(ch), 'test no for '+ii);
-            }
-        }
     });
 
     test( 'CharFunk isValidFirstForName', function() {
@@ -162,19 +75,6 @@ $(function() {'use strict';
         ok( CharFunk.isValidName('Ꙭൽↈⴱ'), 'test yes for Ꙭൽↈⴱ');
 
     }); 
-
-    test( 'CharFunk isWhitespace', function() {
-        var ii, ch;
-        for(ii=0; ii<TEST_DATA.WHITESPACE.length; ii++) {
-            ch=String.fromCharCode(ii);
-            if(TEST_DATA.WHITESPACE[ii]==1) {
-                ok( CharFunk.isWhitespace(ch), 'test yes for '+ii);
-            }
-            else {
-                ok( !CharFunk.isWhitespace(ch), 'test no for '+ii);
-            }
-        }
-    });
 
     test( 'CharFunk indexOf', function() {
         ok( CharFunk.indexOf('This is 1 test', CharFunk.isWhitespace)==4, 'test finding first ascii whitespace');
@@ -237,6 +137,119 @@ $(function() {'use strict';
         ok( CharFunk.splitOnMatches('هذا اختبار',CharFunk.isWhitespace).join(':')=="هذا:اختبار", 'splitOnMatches returns array');
         ok( CharFunk.splitOnMatches('Encyclopedia',CharFunk.isWhitespace).join(':')=='Encyclopedia', 'splitOnMatches returns array');
     });
+
+
+
+    //Before I was running each inner loop from ii=0 to essentially TEST_DATA.~.length, which is ii=65535.
+    //When running the tests via grunt qunit, a timeout would result.
+    //This breaks up the tests into 5 seperate batches which only test 1/5th of the full data range. 
+    //Not only does this avoid the timeout, but will catch general problems more quickly (due to failing on the first cycle).
+
+    for(ss=0; ss<LOOP_INCREMENT; ss++) {
+
+        test( 'CharFunk isDigit #'+(1+ss), function() { 
+            var ii, ch;
+            for(ii=ss; ii<TEST_DATA.GTYPE.length; ii+=LOOP_INCREMENT) {
+                ch=String.fromCharCode(ii);
+                if(TEST_DATA.GTYPE[ii]==2) {
+                    ok( CharFunk.isDigit(ch), 'test yes for '+ii);
+                }
+                else {
+                    ok( !CharFunk.isDigit(ch), 'test no for '+ii);
+                }
+            }
+        });
+
+        test( 'CharFunk isLetter #'+(1+ss), function() { 
+            var ii, ch;
+            for(ii=ss; ii<TEST_DATA.GTYPE.length; ii+=LOOP_INCREMENT) {
+                ch=String.fromCharCode(ii);
+                if(TEST_DATA.GTYPE[ii]==1) {
+                    ok( CharFunk.isLetter(ch), 'test yes for '+ii);
+                }
+                else {
+                    ok( !CharFunk.isLetter(ch), 'test no for '+ii);
+                }
+            }
+        });
+
+        test( 'CharFunk isLetterOrDigit #'+(1+ss), function() { 
+            var ii, ch;
+            for(ii=ss; ii<TEST_DATA.GTYPE.length; ii+=LOOP_INCREMENT) {
+                ch=String.fromCharCode(ii);
+                if(TEST_DATA.GTYPE[ii]>2) {
+                    ok( !CharFunk.isLetterOrDigit(ch), 'test no for '+ii);
+                }
+                else {
+                    ok( CharFunk.isLetterOrDigit(ch), 'test yes for '+ii);
+                }
+            }
+        });
+        test( 'CharFunk isLetterNumber #'+(1+ss), function() { 
+            var ii, ch;
+            for(ii=ss; ii<TEST_DATA.GTYPE.length; ii+=LOOP_INCREMENT) {
+                ch=String.fromCharCode(ii);
+                if(TEST_DATA.GTYPE[ii]==3) {
+                    ok( CharFunk.isLetterNumber(ch), 'test yes for '+ii);
+                }
+                else {
+                    ok( !CharFunk.isLetterNumber(ch), 'test no for '+ii);
+                }
+            }
+        });
+
+        test( 'CharFunk isLowerCase #'+(1+ss), function() { 
+            var ii, ch;
+            for(ii=ss; ii<TEST_DATA.CASE.length; ii+=LOOP_INCREMENT) {
+                ch=String.fromCharCode(ii);
+                if(TEST_DATA.CASE[ii]==2) {
+                    ok( CharFunk.isLowerCase(ch), 'test yes for '+ii);
+                }
+                else {
+                    ok( !CharFunk.isLowerCase(ch), 'test no for '+ii);
+                }
+            }
+        });
+
+        test( 'CharFunk isMirrored #'+(1+ss), function() { 
+            var ii, ch;
+            for(ii=ss; ii<TEST_DATA.MIRRORED.length; ii+=LOOP_INCREMENT) {
+                ch=String.fromCharCode(ii);
+                if(TEST_DATA.MIRRORED[ii]==1) {
+                    ok( CharFunk.isMirrored(ch), 'test yes for '+ii);
+                }
+                else {
+                    ok( !CharFunk.isMirrored(ch), 'test no for '+ii);
+                }
+            }
+        });
+
+        test( 'CharFunk isUpperCase #'+(1+ss), function() { 
+            var ii, ch;
+            for(ii=ss; ii<TEST_DATA.CASE.length; ii+=LOOP_INCREMENT) {
+                ch=String.fromCharCode(ii);
+                if(TEST_DATA.CASE[ii]==1) {
+                    ok( CharFunk.isUpperCase(ch), 'test yes for '+ii);
+                }
+                else {
+                    ok( !CharFunk.isUpperCase(ch), 'test no for '+ii);
+                }
+            }
+        });
+
+        test( 'CharFunk isWhitespace #'+(1+ss), function() { 
+            var ii, ch;
+            for(ii=ss; ii<TEST_DATA.WHITESPACE.length; ii+=LOOP_INCREMENT) {
+                ch=String.fromCharCode(ii);
+                if(TEST_DATA.WHITESPACE[ii]==1) {
+                    ok( CharFunk.isWhitespace(ch), 'test yes for '+ii);
+                }
+                else {
+                    ok( !CharFunk.isWhitespace(ch), 'test no for '+ii);
+                }
+            }
+        });
+    }
 
 
 });
