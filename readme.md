@@ -34,7 +34,15 @@ Here are some of the things you can do with CharFunk:
     //Find the position of last uppercase letter in the string
     CharFunk.lastIndexOf('Новые Известия',CharFunk.isUpperCase); //returns 6
 
-All you need is to download [charFunk-1.1.1.min.js](https://raw.github.com/joelarson4/CharFunk/master/charFunk-1.1.1.min.js) -- that's it, no other dependencies.
+All you need is to download [charFunk-1.1.2.min.js](https://raw.github.com/joelarson4/CharFunk/master/charFunk-1.1.2.min.js) -- that's it, no other dependencies.
+
+If you want to use in Node, you can simply 
+
+    npm install CharFunk
+
+and then
+
+    var CharFunk = require('CharFunk');
 
 Interested in contributing?  Check out [contributors.md](https://github.com/joelarson4/CharFunk/blob/master/contributors.md) for some details.
 

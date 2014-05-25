@@ -2,14 +2,16 @@
 
 If you can help, please do.  The source files of interest are:
 
-+`src/charFunk-1.1.1.js` - the actual library
-+`src/java/GenCharFunkData.java` - this uses java.lang.Character methods to build up and output CharFunk data into the marked sections of charFunk-1.1.1.js and charFunk-test-data.js
-+`src/java/GenDoco.java` - chews up the comments in charFunk-1.1.1.js and outputs documentation markdown into readme.md
++`src/charFunk-1.1.2.js` - the actual library
++`src/java/GenCharFunkData.java` - this uses java.lang.Character methods to build up and output CharFunk data into the marked sections of charFunk-1.1.2.js and charFunk-test-data.js
++`src/java/GenDoco.java` - chews up the comments in charFunk-1.1.2.js and outputs documentation markdown into readme.md
 +`tests/charFunk-tests.js` - all the qunit tests for CharFunk
 
 Once you've made any changes, you can build everything using 
 
     > ./build.sh
+
+Note that build tests very comprehensively across all codepoints (524309 assertions!) so it will take a while -- almost 10 minutes on my machine!
 
 ###Some areas needing help:
 

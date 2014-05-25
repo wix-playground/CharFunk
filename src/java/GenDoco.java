@@ -12,7 +12,7 @@ public class GenDoco {
     public static void main(String[] args) {
         try {
             System.out.println("Generating Doco...");
-            ArrayList<String> inplin=getFileContents("../charFunk-1.1.1.js");//source javascript lines
+            ArrayList<String> inplin=getFileContents("../charFunk-1.1.2.js");//source javascript lines
             ArrayList<String> inpmkd=getFileContents("../../readme.md"); 
             ArrayList<String> outmkd=new ArrayList<String>();//output markdown
 

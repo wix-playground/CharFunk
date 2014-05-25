@@ -8,12 +8,12 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> <%= pkg.version %> - Copyright (c) <%= grunt.template.today("yyyy") %> by Joe Larson (http://joewlarson.com), MIT License - minified <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'src/charFunk-1.1.1.js',
-                dest: 'charFunk-1.1.1.min.js'
+                src: 'src/charFunk-1.1.2.js',
+                dest: 'charFunk-1.1.2.min.js'
             }
         },
         jshint: {
-            files: ['Gruntfile.js', 'src/charFunk-1.1.1.js']
+            files: ['Gruntfile.js', 'src/charFunk-1.1.2.js']
         },
         qunit: {
             files: ['tests/index.html']
@@ -24,8 +24,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
-    grunt.loadNpmTasks('grunt-lib-phantomjs');
-
+    
     /*See https://github.com/joelarson4/CharFunk/issues/2
 
         If I can't sort that out soon or get a fix, I can probably get it to run in grunt some other way...
