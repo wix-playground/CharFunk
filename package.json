@@ -10,5 +10,32 @@
     "grunt-contrib-qunit": "~0.2.0",
     "phantomjs": "~1.9.0-1",
     "grunt-mocha": "~0.4.10"
-  }
+  },
+  "description": "CharFunk provides some of the functionality that Java's Character class does.  Many of these things would be difficult to do in JavaScript without very unweildy RegExps or using [XRegExp](http://xregexp.com/).  For example, it lets you test whether unicode characters in the Basic Multilingual Plane (0000 to FFFF) are letters or digits.",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.3.0",
+    "grunt-mocha": "~0.4.10",
+    "grunt-contrib-qunit": "~0.2.0",
+    "grunt-lib-phantomjs": "~0.3.0",
+    "phantomjs": "~1.9.0-1",
+    "grunt-contrib-uglify": "~0.2.0"
+  },
+  "scripts": {
+    "test": "tests/charFunk-tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joelarson4/CharFunk.git"
+  },
+  "author": "Joe Larson <joelarson4@gmail.com> (http://joewlarson.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joelarson4/CharFunk/issues"
+  },
+  "homepage": "https://github.com/joelarson4/CharFunk"
 }
