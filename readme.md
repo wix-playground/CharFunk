@@ -38,11 +38,11 @@ All you need is to download [charFunk-1.1.2.min.js](https://raw.github.com/joela
 
 If you want to use in Node, you can simply 
 
-    npm install CharFunk
+    npm install charfunk
 
 and then
 
-    var CharFunk = require('CharFunk');
+    var CharFunk = require('charfunk');
 
 Interested in contributing?  Check out [contributors.md](https://github.com/joelarson4/CharFunk/blob/master/contributors.md) for some details.
 
