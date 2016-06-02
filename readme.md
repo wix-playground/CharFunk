@@ -4,35 +4,37 @@ CharFunk provides some of the functionality that Java's Character class does.  M
 
 Here are some of the things you can do with CharFunk:
 
-    //Is this character a digit?
-    CharFunk.isDigit('A'); //false
-    CharFunk.isDigit('1'); //true
-    CharFunk.isDigit('\u0E54'); //true - that's Thai #4 - http://unicodinator.com/#0E54
+```js
+//Is this character a digit?
+CharFunk.isDigit('A'); //false
+CharFunk.isDigit('1'); //true
+CharFunk.isDigit('\u0E54'); //true - that's Thai #4 - http://unicodinator.com/#0E54
 
-    //Is this character a mirrored character?
-    CharFunk.isMirrored('A'); //false
-    CharFunk.isMirrored('('); //true
-    CharFunk.isMirrored('\u2039'); //true - that's a Single Left-pointing Angle Quotation Mark - http://unicodinator.com/#2039
+//Is this character a mirrored character?
+CharFunk.isMirrored('A'); //false
+CharFunk.isMirrored('('); //true
+CharFunk.isMirrored('\u2039'); //true - that's a Single Left-pointing Angle Quotation Mark - http://unicodinator.com/#2039
 
-    //Is this string valid JavaScript Identifier?
-    CharFunk.isValidName('Apple');          //true
-    CharFunk.isValidName('تفاحة');            //true - that's the Arabic word for apple
-    CharFunk.isValidName('Apple Dumpling'); //false
-    CharFunk.isValidName('function');       //true
-    CharFunk.isValidName('function',true);  //false - when that second argument is set truthy it means we want to avoid reserved keywords
+//Is this string valid JavaScript Identifier?
+CharFunk.isValidName('Apple');          //true
+CharFunk.isValidName('تفاحة');          //true - that's the Arabic word for apple
+CharFunk.isValidName('Apple Dumpling'); //false
+CharFunk.isValidName('function');       //true
+CharFunk.isValidName('function',true);  //false - when that second argument is set truthy it means we want to avoid reserved keywords
 
-    //Replace all the characters that are not letters or digits or question marks with an underscore
-    CharFunk.replaceMatches('What will come out?',function(ch) {
-      return CharFunk.isLetterOrDigit(ch) || ch=='?';
-      },'_'); //will return 'What_will_come_out_'
-      
-    //OK, you could do that with JavaScript regex easily enough, but you could not do this:
-    CharFunk.replaceMatches('جمهورية مصر العربية',function(ch) {
-        return !CharFunk.isLetterOrDigit(ch);
-        },'_'); //will return 'جمهورية_مصر_العربية'
+//Replace all the characters that are not letters or digits or question marks with an underscore
+CharFunk.replaceMatches('What will come out?',function(ch) {
+  return CharFunk.isLetterOrDigit(ch) || ch=='?';
+  },'_'); //will return 'What_will_come_out_'
+  
+//OK, you could do that with JavaScript regex easily enough, but you could not do this:
+CharFunk.replaceMatches('جمهورية مصر العربية',function(ch) {
+    return !CharFunk.isLetterOrDigit(ch);
+    },'_'); //will return 'جمهورية_مصر_العربية'
 
-    //Find the position of last uppercase letter in the string
-    CharFunk.lastIndexOf('Новые Известия',CharFunk.isUpperCase); //returns 6
+//Find the position of last uppercase letter in the string
+CharFunk.lastIndexOf('Новые Известия',CharFunk.isUpperCase); //returns 6
+```
 
 All you need is to download [charFunk-1.1.2.min.js](https://raw.github.com/joelarson4/CharFunk/master/charFunk-1.1.2.min.js) -- that's it, no other dependencies.
 
