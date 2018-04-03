@@ -1,5 +1,5 @@
 {
-  "name": "charfunk",
+  "name": "charfunks",
   "version": "1.1.3",
   "main": "charFunk-1.1.3.min.js",
   "devDependencies": {
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joelarson4/CharFunk.git"
+    "url": "https://github.com/wix-playground/CharFunk.git"
   },
   "author": "Joe Larson <joelarson4@gmail.com> (http://joewlarson.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joelarson4/CharFunk/issues"
+    "url": "https://github.com/wix-playground/CharFunk/issues"
   },
-  "homepage": "https://github.com/joelarson4/CharFunk"
+  "homepage": "https://github.com/wix-playground/CharFunk"
 }
