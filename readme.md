@@ -1,5 +1,8 @@
 #CharFunk - a Unicode character utility for JavaScript
 
+[Original lib](https://github.com/joelarson4/CharFunk) is not supported,
+removed unnecessary dependencies, updated and released a new version.
+
 CharFunk provides some of the functionality that Java's Character class does.  Many of these things would be difficult to do in JavaScript without very unweildy RegExps or using [XRegExp](http://xregexp.com/).  For example, it lets you test whether unicode characters in the Basic Multilingual Plane (0000 to FFFF) are letters or digits.
 
 Here are some of the things you can do with CharFunk:
@@ -93,7 +96,7 @@ Returns an array of contiguous matching strings for which the callback returns t
 
 `@param {Function} callback` - a function to call for each character, which must return true if a match or false if not a match.  This function will be provided three arguments: a char to check, a number for the position, and a number for the string length
 
-`@returns {Array{String}}` 
+`@returns {Array{String}}`
 
 
 ###CharFunk.isAllLettersOrDigits(string)
@@ -102,7 +105,7 @@ Returns true if the string argument is composed of all letters and digits
 
 `@param {String} string` - a string of any length
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isDigit(ch)
@@ -111,7 +114,7 @@ Returns true if provided a length 1 string that is a digit
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isLetter(ch)
@@ -120,7 +123,7 @@ Returns true if provided a length 1 string that is a letter
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isLetterNumber(ch)
@@ -130,7 +133,7 @@ Beware -- this is NOT the same thing as isLetterOrDigit()!
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isLetterOrDigit(ch)
@@ -139,7 +142,7 @@ Returns true if provided a length 1 string that is a letter or a digit
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isLowerCase(ch)
@@ -148,7 +151,7 @@ Returns true if provided a length 1 string that is lowercase
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isMirrored(ch)
@@ -157,7 +160,7 @@ Returns true if provided a length 1 string that is a mirrored character
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isUpperCase(ch)
@@ -166,7 +169,7 @@ Returns true if provided a length 1 string that is uppercase
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isValidFirstForName(ch)
@@ -175,7 +178,7 @@ Returns true if provided a length 1 string that is a valid leading character for
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isValidMidForName(ch)
@@ -184,7 +187,7 @@ Returns true if provided a length 1 string that is a valid non-leading character
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isValidName(string,checkReserved)
@@ -196,7 +199,7 @@ This is a bit more restrictive than browsers tend to be, using the actual rules 
 
 `@param {Boolean} checkReserved` - set to true if you wish to get back false if string is a reserved ECMAScript keyword
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.isWhitespace(ch)
@@ -205,7 +208,7 @@ Returns true if provided a length 1 string that is a whitespace character
 
 `@param {String} ch` - a length 1 string
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.indexOf(string,callback)
@@ -216,7 +219,7 @@ Returns the first index where the character causes a true return from the callba
 
 `@param {Function} callback` - a function to call for each character, which must return true if a match or false if not a match.  This function will be provided three arguments: a char to check, a number for the position, and a number for the string length
 
-`@returns {Number}` 
+`@returns {Number}`
 
 
 ###CharFunk.lastIndexOf(string,callback)
@@ -227,7 +230,7 @@ Returns the last index where the character causes a true return from the callbac
 
 `@param {Function} callback` - a function to call for each character, which must return true if a match or false if not a match.  This function will be provided three arguments: a char to check, a number for the position, and a number for the string length
 
-`@returns {Number}` 
+`@returns {Number}`
 
 
 ###CharFunk.matchesAll(string,callback)
@@ -238,7 +241,7 @@ Returns true if all characters in the provided string result in a true return fr
 
 `@param {Function} callback` - a function to call for each character, which must return true if a match or false if not a match.  This function will be provided three arguments: a char to check, a number for the position, and a number for the string length
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
 
 
 ###CharFunk.replaceMatches(string,callback,ch)
@@ -266,4 +269,4 @@ Splits the string on all matches, similar to String.split().
 
 `@param {Function} callback` - a function to call for each character, which must return true if a match or false if not a match.  This function will be provided three arguments: a char to check, a number for the position, and a number for the string length
 
-`@returns {Boolean}` 
+`@returns {Boolean}`
